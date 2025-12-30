@@ -33,16 +33,11 @@ Here's a comprehensive README.md for your Zettelkasten app that you can copy and
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/zettelkasten.git
+   git clone https://github.com/TheNomad11/zettelkasten.git
    cd zettelkasten
    ```
 
-2. Create a `.env` file:
-   ```bash
-   cp .env.example .env
-   ```
-
-3. Edit `.env` with your credentials:
+2. Edit `.env` with your credentials:
    ```ini
    ZETTEL_USERNAME=your_username
    ZETTEL_PASSWORD=your_secure_password
@@ -50,12 +45,12 @@ Here's a comprehensive README.md for your Zettelkasten app that you can copy and
    SESSION_TIMEOUT=7200
    ```
 
-4. Start the application:
+3. Start the application:
    ```bash
    docker-compose up -d
    ```
 
-5. Access the application at `http://localhost:8333`
+4. Access the application at `http://localhost:8333`
 
 ### Manual Installation
 
