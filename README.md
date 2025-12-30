@@ -47,7 +47,7 @@ Here's a comprehensive README.md for your Zettelkasten app that you can copy and
 
 3. Start the application:
    ```bash
-   docker-compose up -d
+   docker-compose up -d --build
    ```
 
 4. Access the application at `http://localhost:8333`
