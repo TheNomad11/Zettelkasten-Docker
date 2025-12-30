@@ -1,0 +1,716 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f4f4f9; color: #333; line-height: 1.6; padding: 20px; }
+.container { max-width: 1200px; margin: 0 auto; }
+h1 { color: #2c3e50; margin-bottom: 20px; }
+h2 { color: #34495e; margin-top: 30px; margin-bottom: 15px; }
+h3 { color: #7f8c8d; margin-top: 20px; margin-bottom: 10px; font-size: 1.1em; }
+
+/* Header section with actions */
+.header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 15px;
+}
+
+.header-section h1 {
+    margin: 0;
+    flex-shrink: 0;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+/* Standardized button styling - BASE CLASS */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none !important;
+    font-size: 0.9em;
+    font-weight: 600;
+    font-family: inherit;
+    line-height: 1.4;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    min-height: 36px;
+}
+
+/* Remove underline from button links on hover too */
+.btn:hover {
+    text-decoration: none !important;
+}
+
+/* Random note button */
+.btn-random {
+    background: linear-gradient(135deg, #9b59b6, #8e44ad);
+    color: white;
+    box-shadow: 0 2px 8px rgba(155, 89, 182, 0.3);
+}
+
+.btn-random:hover {
+    background: linear-gradient(135deg, #8e44ad, #732d91);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(155, 89, 182, 0.4);
+}
+
+/* Export button */
+.btn-export-link {
+    background: linear-gradient(135deg, #16a085, #138f75);
+    color: white;
+    box-shadow: 0 2px 8px rgba(22, 160, 133, 0.3);
+}
+
+.btn-export-link:hover {
+    background: linear-gradient(135deg, #138f75, #117a65);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(22, 160, 133, 0.4);
+}
+
+/* Logout button */
+.btn-logout {
+    background: #e74c3c;
+    color: white;
+}
+
+.btn-logout:hover {
+    background: #c0392b;
+}
+
+/* Sticky zettel styling */
+.sticky-zettel {
+    border: 3px solid #f39c12;
+    background: linear-gradient(135deg, #fff9e6 0%, #ffffff 100%);
+    box-shadow: 0 4px 15px rgba(243, 156, 18, 0.2);
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.sticky-badge {
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+    color: white;
+    padding: 8px 16px;
+    font-weight: 600;
+    font-size: 0.9em;
+    border-radius: 0 0 8px 8px;
+    display: inline-block;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(243, 156, 18, 0.3);
+}
+
+/* Pin/Unpin buttons */
+.btn-pin, .btn-unpin {
+    background: #f39c12;
+    color: white;
+}
+
+.btn-pin:hover {
+    background: #e67e22;
+}
+
+.btn-unpin {
+    background: #e67e22;
+}
+
+.btn-unpin:hover {
+    background: #d35400;
+}
+
+/* Back to all link for single view */
+.back-link { 
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px; 
+    background: #95a5a6; 
+    color: white; 
+    text-decoration: none; 
+    border-radius: 4px; 
+    margin-bottom: 20px;
+    font-weight: 600;
+    min-height: 40px;
+}
+.back-link:hover { background: #7f8c8d; }
+
+/* Bookmarklet section */
+.bookmarklet-section { background: #e8f5e9; border: 2px solid #4caf50; border-radius: 8px; padding: 20px; margin-bottom: 30px; }
+.bookmarklet-section h3 { color: #2e7d32; margin-top: 0; }
+.bookmarklet-link { 
+    display: inline-flex;
+    align-items: center;
+    background: #4caf50; 
+    color: white; 
+    padding: 10px 20px; 
+    text-decoration: none; 
+    border-radius: 5px; 
+    font-weight: bold; 
+    margin: 10px 0;
+    min-height: 40px;
+}
+.bookmarklet-link:hover { background: #45a049; }
+.bookmarklet-instructions { margin-top: 10px; font-size: 0.95em; }
+
+/* Bookmarklet popup mode */
+.popup-mode { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+.popup-mode h2 { margin-top: 0; color: #4caf50; }
+
+.search-form { display: flex; gap: 10px; margin-bottom: 20px; align-items: stretch; }
+.search-form input[type="text"] { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 1em; }
+.search-form button, .search-form a { 
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    font-size: 1em;
+    text-decoration: none;
+    font-weight: 600;
+    min-height: 42px;
+}
+.search-form button { background: #3498db; color: white; }
+.search-form button:hover { background: #2980b9; }
+.search-form a { background: #95a5a6; color: white; }
+.search-form a:hover { background: #7f8c8d; }
+
+.tag-cloud { background: white; padding: 15px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+.tag-cloud a { display: inline-block; margin: 5px; padding: 5px 12px; background: #ecf0f1; color: #2c3e50; text-decoration: none; border-radius: 3px; font-size: 0.9em; }
+.tag-cloud a:hover { background: #3498db; color: white; }
+
+/* Tag cloud at bottom */
+.tag-cloud-bottom {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    border-top: 2px solid #ecf0f1;
+    padding-top: 20px;
+}
+
+.create-form { background: white; padding: 20px; border-radius: 8px; margin-bottom: 30px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+.create-form label { display: block; margin-top: 15px; font-weight: 600; color: #2c3e50; }
+.create-form input[type="text"], .create-form textarea { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ddd; border-radius: 4px; font-size: 1em; font-family: inherit; }
+.create-form textarea { min-height: 150px; resize: vertical; }
+.create-form button { 
+    margin-top: 15px; 
+    padding: 12px 24px; 
+    background: #27ae60; 
+    color: white; 
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    font-size: 1em; 
+    font-weight: 600;
+    min-height: 44px;
+}
+.create-form button:hover { background: #229954; }
+
+.zettel { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+.zettel-header { display: flex; justify-content: space-between; align-items: start; margin-bottom: 15px; }
+.zettel-title { font-size: 1.5em; font-weight: 600; color: #2c3e50; margin: 0; }
+.zettel-meta { font-size: 0.85em; color: #7f8c8d; margin-top: 5px; }
+.zettel-content { margin: 15px 0; color: #34495e; }
+
+/* Markdown content styling */
+.zettel-content h1 { font-size: 1.8em; margin: 20px 0 10px; color: #2c3e50; }
+.zettel-content h2 { font-size: 1.5em; margin: 18px 0 10px; color: #34495e; }
+.zettel-content h3 { font-size: 1.3em; margin: 16px 0 8px; color: #7f8c8d; }
+.zettel-content h4 { font-size: 1.1em; margin: 14px 0 8px; color: #95a5a6; }
+.zettel-content h5 { font-size: 1em; margin: 12px 0 6px; font-weight: 600; }
+.zettel-content h6 { font-size: 0.9em; margin: 10px 0 6px; font-weight: 600; }
+
+.zettel-content p { margin: 10px 0; line-height: 1.7; }
+
+.zettel-content blockquote { 
+    margin: 15px 0; 
+    padding: 10px 20px; 
+    border-left: 4px solid #3498db; 
+    background: #f8f9fa; 
+    color: #555;
+    font-style: italic;
+}
+.zettel-content blockquote p { margin: 8px 0; }
+
+.zettel-content code { 
+    background: #f4f4f4; 
+    padding: 2px 6px; 
+    border-radius: 3px; 
+    font-family: 'Courier New', monospace; 
+    font-size: 0.9em;
+    color: #e74c3c;
+}
+
+.zettel-content pre { 
+    background: #2c3e50; 
+    color: #ecf0f1; 
+    padding: 15px; 
+    border-radius: 5px; 
+    overflow-x: auto; 
+    margin: 15px 0;
+}
+.zettel-content pre code { 
+    background: none; 
+    color: inherit; 
+    padding: 0;
+}
+
+.zettel-content ul, .zettel-content ol { 
+    margin: 10px 0 10px 25px; 
+    line-height: 1.8;
+}
+.zettel-content li { margin: 5px 0; }
+
+.zettel-content hr { 
+    border: none; 
+    border-top: 2px solid #ecf0f1; 
+    margin: 20px 0; 
+}
+
+.zettel-content table { 
+    border-collapse: collapse; 
+    width: 100%; 
+    margin: 15px 0; 
+}
+.zettel-content table th, .zettel-content table td { 
+    border: 1px solid #ddd; 
+    padding: 10px; 
+    text-align: left; 
+}
+.zettel-content table th { 
+    background: #34495e; 
+    color: white; 
+    font-weight: 600; 
+}
+.zettel-content table tr:nth-child(even) { background: #f8f9fa; }
+
+.zettel-content a { color: #3498db; text-decoration: none; }
+.zettel-content a:hover { text-decoration: underline; }
+
+.zettel-content strong { font-weight: 600; color: #2c3e50; }
+.zettel-content em { font-style: italic; }
+
+.zettel-content img { max-width: 100%; height: auto; border-radius: 5px; margin: 10px 0; }
+
+.zettel-tags { margin: 15px 0; }
+.zettel-tags span { display: inline-block; margin-right: 8px; padding: 4px 10px; background: #ecf0f1; color: #2c3e50; border-radius: 3px; font-size: 0.85em; }
+.zettel-links { margin: 15px 0; }
+.zettel-links a { color: #3498db; text-decoration: none; margin-right: 10px; }
+.zettel-links a:hover { text-decoration: underline; }
+
+/* Zettel actions - FIXED ALIGNMENT */
+.zettel-actions { 
+    display: flex; 
+    gap: 10px; 
+    margin-top: 15px; 
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* Remove margin from forms inside actions */
+.zettel-actions form {
+    margin: 0;
+    padding: 0;
+    display: inline-flex;
+    flex: 0 0 auto;
+}
+
+/* All buttons in zettel actions should have consistent styling */
+.zettel-actions button, 
+.zettel-actions a,
+.zettel-actions input[type="submit"] { 
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px; 
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    text-decoration: none; 
+    font-size: 0.9em;
+    font-weight: 600;
+    font-family: inherit;
+    line-height: 1.4;
+    min-height: 36px;
+    transition: all 0.2s ease;
+}
+
+.btn-edit { background: #f39c12; color: white; }
+.btn-edit:hover { background: #e67e22; }
+.btn-delete { background: #e74c3c; color: white; }
+.btn-delete:hover { background: #c0392b; }
+.btn-view { background: #3498db; color: white; }
+.btn-view:hover { background: #2980b9; }
+.btn-save { background: #27ae60; color: white; }
+.btn-save:hover { background: #229954; }
+.btn-cancel { background: #95a5a6; color: white; }
+.btn-cancel:hover { background: #7f8c8d; }
+
+.edit-form { background: #fff9e6; padding: 20px; border-radius: 8px; margin-top: 15px; border: 2px solid #f39c12; }
+.edit-form input[type="text"], .edit-form textarea { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px; font-family: inherit; }
+.edit-form textarea { min-height: 150px; }
+.edit-form button { 
+    padding: 10px 20px; 
+    margin-right: 10px; 
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    font-weight: 600;
+    min-height: 40px;
+}
+
+.pagination { display: flex; justify-content: center; gap: 10px; margin: 30px 0; flex-wrap: wrap; }
+.pagination a, .pagination span { 
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px; 
+    background: white; 
+    border: 1px solid #ddd; 
+    border-radius: 4px; 
+    text-decoration: none; 
+    color: #2c3e50;
+    min-width: 36px;
+    min-height: 36px;
+}
+.pagination a:hover { background: #3498db; color: white; border-color: #3498db; }
+.pagination .current { background: #3498db; color: white; border-color: #3498db; font-weight: 600; }
+
+.internal-link { color: #9b59b6; text-decoration: none; font-weight: 500; }
+.internal-link:hover { text-decoration: underline; }
+.broken-link { color: #e74c3c; font-style: italic; }
+
+.related-section { background: #f8f9fa; padding: 15px; border-radius: 6px; margin-top: 20px; }
+.related-section h4 { color: #34495e; margin-bottom: 10px; font-size: 1em; }
+.related-section ul { list-style: none; padding: 0; }
+.related-section li { padding: 5px 0; }
+.related-section a { color: #3498db; text-decoration: none; }
+.related-section a:hover { text-decoration: underline; }
+
+.no-results { background: #fff3cd; border: 1px solid #ffc107; color: #856404; padding: 15px; border-radius: 6px; margin: 20px 0; }
+
+/* Make long links and long words break gracefully */
+a, 
+.zettel-content, 
+.zettel-content p, 
+.zettel-content div, 
+.zettel-content span {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.zettel a {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+.zettel-meta code {
+  word-break: break-all;
+  overflow-wrap: break-word;
+}
+
+/* Authentication styles */
+.auth-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.user-info {
+    color: #7f8c8d;
+    font-size: 0.95em;
+}
+
+/* Modal Overlay */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 700px;
+    max-height: 85vh;
+    overflow-y: auto;
+    position: relative;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-close {
+    color: #aaa;
+    float: right;
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 20px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+    color: #e74c3c;
+}
+
+.btn-create-new {
+    padding: 15px 40px;
+    font-size: 1.1em;
+    background: linear-gradient(135deg, #27ae60, #229954);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+    transition: all 0.3s ease;
+    font-weight: 600;
+    min-height: 50px;
+}
+
+.btn-create-new:hover {
+    background: linear-gradient(135deg, #229954, #1e8449);
+    box-shadow: 0 6px 20px rgba(39, 174, 96, 0.4);
+    transform: translateY(-2px);
+}
+
+.btn-create-new:active {
+    transform: translateY(0);
+}
+
+/* Modal form styling */
+.modal-content form input,
+.modal-content form textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0 15px 0;
+    border: 2px solid #ecf0f1;
+    border-radius: 6px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+.modal-content form input:focus,
+.modal-content form textarea:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+.modal-content form label {
+    font-weight: 600;
+    color: #2c3e50;
+    display: block;
+    margin-top: 10px;
+}
+
+.modal-content form button {
+    min-height: 44px;
+}
+
+@media (max-width: 768px) {
+    body { padding: 10px; }
+    
+    /* Header adjustments */
+    .header-section { 
+        flex-direction: column; 
+        align-items: stretch;
+        gap: 15px;
+    }
+    
+    .header-section h1 {
+        text-align: center;
+        font-size: 1.5em;
+    }
+    
+    .header-actions { 
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+    
+    .header-actions > * {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .header-actions span {
+        display: block;
+        text-align: center;
+        padding: 8px;
+        margin: 0 !important;
+    }
+    
+    /* Sticky badge - prevent wrapping */
+    .sticky-badge {
+        font-size: 0.85em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+    }
+    
+    /* Search form */
+    .search-form { 
+        flex-direction: column; 
+    }
+    
+    .search-form input,
+    .search-form button,
+    .search-form a {
+        width: 100%;
+    }
+    
+    /* Zettel cards */
+    .zettel { 
+        padding: 15px; 
+    }
+    
+    .zettel-header { 
+        flex-direction: column; 
+    }
+    
+    .zettel-title {
+        font-size: 1.3em;
+    }
+    
+    .zettel-actions { 
+        flex-direction: column; 
+        align-items: stretch;
+        gap: 10px;
+    }
+    
+    .zettel-actions button,
+    .zettel-actions a,
+    .zettel-actions form {
+        width: 100%;
+        margin: 0;
+    }
+    
+    .zettel-actions form button {
+        width: 100%;
+    }
+    
+    .zettel-actions .btn,
+    .zettel-actions button,
+    .zettel-actions a {
+        display: flex;
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+    
+    /* Bookmarklet section */
+    .bookmarklet-section {
+        padding: 15px;
+    }
+    
+    .bookmarklet-section h3 {
+        font-size: 1em;
+    }
+    
+    /* Tag cloud */
+    .tag-cloud {
+        padding: 10px;
+    }
+    
+    .tag-cloud a {
+        font-size: 0.85em;
+        margin: 3px;
+        padding: 4px 8px;
+    }
+    
+    /* Create button */
+    .btn-create-new {
+        padding: 12px 30px;
+        font-size: 1em;
+    }
+    
+    /* Pagination */
+    .pagination {
+        gap: 5px;
+    }
+    
+    .pagination a,
+    .pagination span {
+        padding: 6px 10px;
+        font-size: 0.9em;
+    }
+    
+    /* Modal adjustments */
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+        padding: 20px;
+    }
+    
+    /* Edit forms */
+    .edit-form {
+        padding: 15px;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    body {
+        padding: 5px;
+    }
+    
+    .header-section h1 {
+        font-size: 1.3em;
+    }
+    
+    .zettel {
+        padding: 12px;
+    }
+    
+    .zettel-title {
+        font-size: 1.2em;
+    }
+    
+    .btn-create-new {
+        padding: 10px 20px;
+        font-size: 0.95em;
+    }
+    
+    .sticky-badge {
+        font-size: 0.8em;
+    }
+}
