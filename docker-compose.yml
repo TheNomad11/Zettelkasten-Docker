@@ -1,0 +1,21 @@
+services:
+  zettelkasten:
+    build: .
+    ports:
+      - "8333:80"  # Map host:8080 → container:80
+    volumes:
+      - ./config:/var/www/html/config  # Maps host's ./config → container's /var/www/config
+      - ./zettels:/var/www/html/zettels
+      - ./.env:/var/www/.env
+    environment:
+      - APACHE_DOCUMENT_ROOT=/var/www/html
+      - ZETTEL_USERNAME=${ZETTEL_USERNAME}
+      - ZETTEL_PASSWORD=${ZETTEL_PASSWORD}
+      - SESSION_LIFETIME=${SESSION_LIFETIME}
+      - SESSION_TIMEOUT=${SESSION_TIMEOUT}
+      - MAX_LOGIN_ATTEMPTS=${MAX_LOGIN_ATTEMPTS}
+      - LOGIN_LOCKOUT_TIME=${LOGIN_LOCKOUT_TIME}
+      - ZETTELS_DIR=/var/www/html/zettels
+      - APP_DEBUG=true
+      - CSRF_TOKEN_LIFETIME=${CSRF_TOKEN_LIFETIME}
+    restart: unless-stopped
