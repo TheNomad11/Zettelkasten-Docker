@@ -1,0 +1,32 @@
+# Git files
+.git
+.gitignore
+.gitattributes
+
+# Docker files
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Documentation
+README.md
+README-DOCKER.md
+*.md
+
+# Data directory (will be mounted as volume)
+data/
+
+# Config directory (will be mounted as volume)
+config/
+
+# Development files
+.vscode
+.idea
+*.log
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.swp
+*~
