@@ -14,7 +14,7 @@ define('SESSION_LIFETIME', 60 * 60 * 24 * 30); // 30 days in seconds
 define('SESSION_TIMEOUT', 60 * 60 * 2); // 2 hours inactivity timeout
 
 // Enhanced Session Security (add these lines)
-ini_set('session.cookie_samesite', 'Strict');  // Upgrade from 'Lax' to 'Strict'
+ini_set('session.cookie_samesite', 'Lax');  // Lax when behind reverse proxy
 // Only enable cookie_secure if using HTTPS:
 ini_set('session.cookie_secure', 1);  // Uncomment when using HTTP
 // Authentication Credentials
