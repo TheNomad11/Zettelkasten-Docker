@@ -135,7 +135,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             return preg_replace('/[^a-zA-Z0-9_\-]/', '', $link);
         }, $links);
 
-        $id = uniqid();
+        $id = bin2hex(random_bytes(8));
         $time = date('Y-m-d H:i:s');
         $zettel = [
             'id' => $id,
