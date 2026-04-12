@@ -31,6 +31,10 @@ RUN echo '<Directory /var/www/html/>\n\
     Require all granted\n\
 </Directory>\n\
 \n\
+<Directory /var/www/html/zettels/>\n\
+    Require all denied\n\
+</Directory>\n\
+\n\
 <DirectoryMatch "^.*/config/">\n\
     Require all denied\n\
 </DirectoryMatch>\n\
@@ -39,7 +43,6 @@ RUN echo '<Directory /var/www/html/>\n\
     Require all denied\n\
 </DirectoryMatch>' > /etc/apache2/conf-available/zettelkasten.conf && \
     a2enconf zettelkasten
-
 # Make sure www-data can write to mounted volume
 # This will be overridden by the volume mount, but helps if running without volumes
 RUN chown www-data:www-data /var/www/html/zettels
