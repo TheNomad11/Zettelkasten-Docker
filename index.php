@@ -16,7 +16,7 @@ ini_set('session.cookie_lifetime', SESSION_LIFETIME);
 ini_set('session.gc_maxlifetime', SESSION_LIFETIME);
 ini_set('session.cookie_httponly', 1);
 ini_set('session.use_strict_mode', 1);
-ini_set('session.cookie_samesite', 'Strict');
+ini_set('session.cookie_samesite', 'Lax');
 session_start();
 
 // Authentication check
